@@ -1,0 +1,69 @@
+
+
+
+
+form{
+	margin-top:5%;
+	margin-bottom:5%;
+	width:100%;
+}
+
+.form-group{
+	width:100%;
+}
+
+.user{
+	color:#365899;
+	font-size:20px;
+}
+.time{
+	color:#90949C;
+	font-size:14px;
+}
+#PostContent{
+	color:#282C33;
+	font-size:16px;
+	margin-top:1%;
+}
+
+.icons{
+	margin-top:1%;
+	margin-bottom:1%; 
+}
+
+.responsive{
+	width:75%;
+	height:70%;
+	margin-left:25%;
+	margin-right:0;
+}
+
+
+
+.commentList{
+	 margin-top:2%;
+}
+
+
+.friend{
+	color:#365899;
+	font-size:16px;
+	font-weight:bold;
+}
+.comment{
+	font-size:16px;
+	vertical-align:bottom;
+	text-align:left;
+}
+
+.like{
+	color:#365899;
+	font-size:14px;
+}
+
+
+.InputGroup{
+	margin-top:10%;
+}
+
+

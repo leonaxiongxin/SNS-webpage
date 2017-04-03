@@ -1,0 +1,303 @@
+<!-- 
+1.打开页面会跳出弹窗请求输入username，获取username后页面上方会根据当前时间跟用户打招呼，比如现在是晚上9点，就是Good evening+username； 
+2.点击like按钮可以实现点赞功能，按赞内容之后页面会显示"You,Silvia,Su and 3 others"；按赞回复之后空心图标变成实心图标表示按赞成功;
+3.点击comment按钮会定位到comment输入框；
+4.点击share按钮会跳出弹窗询问user是否确定要分享；
+5.输入comment并点击post可以添加用户自己的评论，新评论也可以被按赞,评论输入框会被清空;
+6.double click新添加的评论会弹出弹窗提示是否要删除自己的评论，确定就删除;
+-->
+
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>FacePook</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="HW4.css">
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+       var date=new Date();
+       var day=date.getDate();
+       var h=date.getHours();
+       var min=date.getMinutes();
+       var name=window.prompt("Please enter your nickName to log in");
+       if(h<12 ){
+            alert("Good Morning, "+name+"\nWelcome to Facepook!");
+       }
+       if(h>=12){
+            h=h-12;
+            if(h<6){
+               alert("Good Afternoon, "+name+"\nWelcome to Facepook!");
+            }
+           if(h>=6){
+                alert("Good Evening, "+name+"\nWelcome to Facepook!");       
+            }
+        } 
+  
+     </script>
+</head>
+<body>
+
+<form action="" method="POST" role="form">
+
+   <div class="form-group">
+      <div class="container">
+      <div class="row">
+         <div class="col-sm-6 col-sm-offset-3">
+             <div class="row">
+                 <div class="col-sm-2">
+                     <img src="profile.jpg" class="img-responsive">
+                 </div>
+                 <div class="col-sm-4">
+                     <div class="row">
+                         <div class="user">Xiong Xin</div>
+                     </div>
+                     <div class="row">
+                         <div class="time">Setemper 10 &nbsp<span class="glyphicon glyphicon-map-marker">&nbspKaohsiung</span></div>
+                     </div>
+                 </div>
+             </div>
+         
+             <div class="row" id="PostContent">
+                 <div class="col-sm-12">
+                     <p>Glad to have been here such a fantastic campus!!! A big dinner~</p>
+                 </div>
+             </div>
+
+             <div class="row">
+                  <div class="col-sm-12">
+                      <img src="post.jpg" class="img-responsive">
+                  </div>
+             </div>
+      
+             <div class="row icons">
+                 <div class="col-sm-4">
+                     <div id="likeButton"><span class="glyphicon glyphicon-heart-empty"> Like</span></div>
+                 </div>
+                 <div class="col-sm-5">
+                    <div id="commentButton"><span class="glyphicon glyphicon-comment"> Comment</span></div>
+                 </div>
+                 <div class="col-sm-3">
+                    <div id="shareButton"><span class="glyphicon glyphicon-share-alt"> Share</span></div>
+                 </div>
+            </div>
+
+            <div class="row icons" >
+                <div class="col-sm-12">
+                    <span class="glyphicon glyphicon-heart" id="likeBy"> Silvia, Su and 3 others</span>
+                </div>
+            </div>
+
+            <div class="row CommentList">
+                <div class="col-sm-2">
+                    <img src="friend1.jpg" class="img-responsive responsive">
+                </div>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="friend">Matha Coop</div>
+                        </div> 
+                        <div class="col-sm-9">
+                            <div class="comment">Wow~have a good time~Miss You~</div>
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="likeComment"><span class="glyphicon glyphicon-heart-empty"></span></div>
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="time">Setemper 10 at 22:24pm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row CommentList">
+                <div class="col-sm-2 col-sm-offset-1">
+                    <img src="profile.jpg" class="img-responsive responsive">
+                </div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="friend">Xiong Xin</div>
+                        </div> 
+                        <div class="col-sm-9">
+                            <div class="comment">Miss You~</div>
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="likeComment"><span class="glyphicon glyphicon-heart-empty"></span></div>
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="time">Setemper 11 at 10:14am</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row CommentList">
+                <div class="col-sm-2">
+                    <img src="friend2.jpg" class="img-responsive responsive">
+                </div>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="friend">Zoe Huang</div>
+                        </div> 
+                        <div class="col-sm-9">
+                            <div class="comment">大家好，我是翠花的体脂，她不要我了</div>
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="likeComment"><span class="glyphicon glyphicon-heart-empty"></span></div>
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="time">Setemper 11 at 02:12am</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row CommentList">
+                <div class="col-sm-2 col-sm-offset-1">
+                    <img src="profile.jpg" class="img-responsive responsive">
+                </div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="friend">Xiong Xin</div>
+                        </div> 
+                        <div class="col-sm-9">
+                            <div class="comment">是菠萝包不够香还是红豆冰不够好吃??</div>
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="likeComment"><span class="glyphicon glyphicon-heart-empty"></span></div>
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="time">Setemper 11 at 10:15am</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row CommentList">
+                <div class="col-sm-2 col-sm-offset-1">
+                    <img src="friend2.jpg" class="img-responsive responsive">
+                </div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="friend">Zoe Huang</div>
+                        </div> 
+                        <div class="col-sm-8">
+                            <div class="comment">hhhhhhh 服气</div>
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="likeComment"><span class="glyphicon glyphicon-heart-empty"></span></div>
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="time">Setemper 11 at 18:44pm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="row CommentList" id="NewComment">
+                <div class="col-sm-2">
+                    <div id="AddProfile" ></div>
+                </div>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="friend" id="AddFriend"></div>
+                        </div> 
+                        <div class="col-sm-9">
+                            <div class="comment" id="AddComment"></div>
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div id="AddlikeComment"></div>
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="time" id="AddTime"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+
+            <div class="row CommentList">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="InputComment">
+                        <span class="input-group-addon" id="PostComment">
+                            <span class="glyphicon glyphicon-send"></span>
+                        </span>
+                </div>
+            </div>
+
+      </div>
+  </div>
+
+  </form>
+
+
+<script>
+    $(document).ready(function(){
+        $("inputComment").focus(function(){
+             $(this).css("background-color","#cccccc");
+        });
+       $("inputComment").blur(function(){
+             $(this).css("background-color","#ffffff");
+        });
+
+        $("#likeButton").click(function(){
+            $("#likeButton").html("<span class='glyphicon glyphicon-heart'> Like</span>");
+            $("#likeBy").prepend(" You,");   
+        });
+        $("#commentButton").click(function(){
+            $("#inputComment").focus(); 
+        });
+        $("#shareButton").click(function(){
+            window.prompt(name+"\n\n Write something to share it");
+        });
+
+        $(".likeComment").click(function(){
+            $(this).html("<span class='glyphicon glyphicon-heart'></span>");
+        });
+        
+        
+        $("#PostComment").click(function(){
+            $("#AddProfile").html("<img src='friend3.jpg'  class='img-responsive responsive'>");
+            $("#AddFriend").html(name);
+            $("#AddComment").html($("#InputComment").val());
+            $("#AddlikeComment").html("<div class='likeComment'><span class='glyphicon glyphicon-heart-empty'></span></div>");
+            $("#AddTime").html("November "+day+" at "+h+":"+min);
+            $("#inputComment").val(null);
+        });
+
+        $("#NewComment").dblclick(function(){
+           var option=window.prompt(name+"\n\n Sure to delete your comment? \n\n Yes, enter 1; No, enter 0.");
+           var choice=parseInt(option);
+           if(choice==1)
+              $("#NewComment").remove();
+        });
+     });
+ 
+</script>
+    
+    
+ </body>
+ </html>
